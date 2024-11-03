@@ -1,0 +1,108 @@
+Test Configuration:
+- Workers: 2
+- Accounts: 4
+- Clients: 2
+- Client sleep: 500 ms
+- Operation sleep: 100 ms
+- Duration: 5 seconds
+----------------------------------------
+Initializing bank with 4 accounts.
+Initialized Account 0 with balance 1000.00
+Initialized Account 1 with balance 1000.00
+Initialized Account 2 with balance 1000.00
+Initialized Account 3 with balance 1000.00
+Bank initialization complete.
+Client generated DEPOSIT of 86.00 to account 3
+Client generated TRANSFER of 82.00 from account 3 to account 0
+Worker 0 started processing request.
+Depositing 86.00 into Account 3
+New balance of Account 3 after deposit: 1086.00
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 1 started processing request.
+Transferring 82.00 from Account 3 to Account 0
+New balance of Account 3 after transfer: 1004.00
+New balance of Account 0 after transfer: 1082.00
+Client generated DEPOSIT of 22.00 to account 2
+Client generated DEPOSIT of 16.00 to account 1
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Depositing 22.00 into Account 2
+New balance of Account 2 after deposit: 1022.00
+Worker 1 started processing request.
+Depositing 16.00 into Account 1
+New balance of Account 1 after deposit: 1016.00
+Client generated TRANSFER of 88.00 from account 1 to account 2
+Client generated TRANSFER of 26.00 from account 0 to account 1
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Transferring 88.00 from Account 1 to Account 2
+New balance of Account 1 after transfer: 928.00
+New balance of Account 2 after transfer: 1110.00
+Worker 1 started processing request.
+Transferring 26.00 from Account 0 to Account 1
+New balance of Account 0 after transfer: 1056.00
+New balance of Account 1 after transfer: 954.00
+Client generated DEPOSIT of 63.00 to account 2
+Client generated TRANSFER of 72.00 from account 2 to account 3
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Depositing 63.00 into Account 2
+New balance of Account 2 after deposit: 1173.00
+Worker 1 started processing request.
+Transferring 72.00 from Account 2 to Account 3
+New balance of Account 2 after transfer: 1101.00
+New balance of Account 3 after transfer: 1076.00
+Client generated DEPOSIT of 6.00 to account 3
+Client generated DEPOSIT of 57.00 to account 2
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+
+Server processed 10 total operations.
+Current bank balances:
+Printing balances of all accounts:
+Account 0: Balance = 1056.00
+Account 1: Balance = 954.00
+Account 2: Balance = 1101.00
+Account 3: Balance = 1076.00
+Worker 0 started processing request.
+Depositing 6.00 into Account 3
+New balance of Account 3 after deposit: 1082.00
+Worker 1 started processing request.
+Depositing 57.00 into Account 2
+New balance of Account 2 after deposit: 1158.00
+Finished printing all balances.
+
+Client generated TRANSFER of 43.00 from account 2 to account 3
+Server assigned request to Worker 0
+Worker 0 started processing request.
+Transferring 43.00 from Account 2 to Account 3
+New balance of Account 2 after transfer: 1115.00
+New balance of Account 3 after transfer: 1125.00
+Client generated DEPOSIT of 35.00 to account 1
+Server assigned request to Worker 0
+Worker 0 started processing request.
+Depositing 35.00 into Account 1
+New balance of Account 1 after deposit: 989.00
+Client generated TRANSFER of 91.00 from account 1 to account 3
+Server assigned request to Worker 0
+Worker 0 started processing request.
+Transferring 91.00 from Account 1 to Account 3
+New balance of Account 1 after transfer: 898.00
+New balance of Account 3 after transfer: 1216.00
+Client generated TRANSFER of 51.00 from account 3 to account 0
+Server assigned request to Worker 0
+Worker 0 started processing request.
+Transferring 51.00 from Account 3 to Account 0
+New balance of Account 3 after transfer: 1165.00
+New balance of Account 0 after transfer: 1107.00
+Client generated DEPOSIT of 34.00 to account 2
+Server assigned request to Worker 0
+Worker 0 started processing request.
+Depositing 34.00 into Account 2
+New balance of Account 2 after deposit: 1149.00
+Client generated DEPOSIT of 5.00 to account 1
+Server 

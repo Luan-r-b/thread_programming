@@ -8,7 +8,8 @@
 extern Bank bank;
 extern RequestQueue request_queue;
 
-
+extern int shutdown_server;
+extern int shutdown_workers;
 
 void init_server(Server* server, int num_workers) {
     server->workers = (WorkerThread*)malloc(sizeof(WorkerThread) * num_workers);
@@ -29,40 +30,50 @@ void init_server(Server* server, int num_workers) {
 
 void* server_thread_func(void* arg) {
     Server* server = (Server*)arg;
-    while (1) {
-
+    while(!shutdown_server){
         pthread_mutex_lock(&server->lock);
+
+    
+
+        // Wait until there is a request and a free worker
         while (request_queue.size == 0 || server->free_workers == 0) {
             pthread_cond_wait(&server->cond, &server->lock);
+            if(shutdown_server){
+                pthread_mutex_unlock(&server->lock);
+                return NULL;
+            }
         }
-        // Obter uma requisição
+
+
+
+        // Get a request from the queue
         Request* request = dequeue_request(&request_queue);
-        // Encontrar um trabalhador livre
+
+        // Find an available worker
         WorkerThread* worker = NULL;
         for (int i = 0; i < server->num_workers; ++i) {
-            pthread_mutex_lock(&server->workers[i].lock);
             if (server->workers[i].busy == 0) {
                 worker = &server->workers[i];
+                pthread_mutex_lock(&worker->lock);
                 worker->busy = 1;
                 worker->request = request;
                 server->free_workers--;
-                pthread_cond_signal(&worker->cond);
-                pthread_mutex_unlock(&server->workers[i].lock);
-                // Log the assignment
+                pthread_cond_signal(&worker->cond); // Signal to the worker
+                pthread_mutex_unlock(&worker->lock);
                 printf("Server assigned request to Worker %d\n", i);
                 break;
             }
-            pthread_mutex_unlock(&server->workers[i].lock);
         }
+
         server->total_operations++;
         if (server->total_operations % 10 == 0) {
             printf("\nServer processed %d total operations.\n", server->total_operations);
             printf("Current bank balances:\n");
-            print_balance(&bank);
+            print_balance(&bank, bank.time_sleep);
             printf("\n");
         }
-
         pthread_mutex_unlock(&server->lock);
     }
     return NULL;
 }
+

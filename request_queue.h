@@ -5,7 +5,8 @@
 
 typedef enum {
     DEPOSIT,
-    TRANSFER
+    TRANSFER,
+    BALANCE
 } RequestType;
 
 typedef struct Request {
@@ -14,6 +15,7 @@ typedef struct Request {
     int from_account_id;
     int to_account_id;
     double amount;
+    int time_sleep;
     struct Request* next;
 } Request;
 

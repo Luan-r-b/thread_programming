@@ -1,0 +1,16 @@
+Test Results Analysis - Sun 03 Nov 2024 05:55:39 PM -03
+----------------------------------------
+Analysis for test_w2_c2_d5:
+Total operations: 0
+Final balances:
+Server assigned request to Worker 1
+Worker 1 started processing request.
+Transferring 61.00 from Account 1 to Account 2
+New balance of Account 1 after transfer: 820.00
+New balance of Account 2 after transfer: 1305.00
+Finished printing all balances.
+Final queue size: 0
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 5 seconds
+----------------------------------------

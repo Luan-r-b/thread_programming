@@ -7,7 +7,7 @@ mkdir -p "$results_dir"
 
 # Create a metadata file
 metadata_file="$results_dir/test_metadata.txt"
-echo "Bank System Tests - $(date)" > "$metadata_file"
+echo "Bank System Tests (~20 requests) - $(date)" > "$metadata_file"
 echo "System Information:" >> "$metadata_file"
 echo "OS: $(uname -a)" >> "$metadata_file"
 echo "Compiler: $(gcc --version | head -n 1)" >> "$metadata_file"
@@ -24,10 +24,11 @@ fi
 # Function to run test and save results
 run_test() {
     workers=$1
-    clients=$2
-    client_sleep=$3
-    op_sleep=$4
-    duration=$5
+    accounts=$2
+    clients=$3
+    client_sleep=$4
+    op_sleep=$5
+    duration=$6
     test_name="test_w${workers}_c${clients}_d${duration}"
     output_file="$results_dir/${test_name}.log"
     
@@ -35,6 +36,7 @@ run_test() {
     echo "Running test: $test_name"
     echo "Test Configuration:" > "$output_file"
     echo "- Workers: $workers" >> "$output_file"
+    echo "- Accounts: $accounts" >> "$output_file"
     echo "- Clients: $clients" >> "$output_file"
     echo "- Client sleep: $client_sleep ms" >> "$output_file"
     echo "- Operation sleep: $op_sleep ms" >> "$output_file"
@@ -43,7 +45,7 @@ run_test() {
     
     # Run the test and capture output
     start_time=$(date +%s)
-    ./bank_program $workers $clients $client_sleep $op_sleep $duration >> "$output_file" 2>&1
+    ./bank_program $workers $accounts $clients $client_sleep $op_sleep $duration >> "$output_file" 2>&1
     end_time=$(date +%s)
     
     # Add execution time to log
@@ -67,26 +69,26 @@ echo "Starting tests..."
 
 # Basic tests
 echo "Running basic tests..."
-run_test 2 3 100 50 1
-# run_test 4 6 100 50 10
-# run_test 8 12 100 50 10
+run_test 2 6 3 100 50 1
+run_test 4 12 6 100 50 10
+run_test 8 24 12 100 50 10
 
 # # Load scaling tests
-# echo "Running load scaling tests..."
-# run_test 4 4 50 25 20
-# run_test 4 8 50 25 20
-# run_test 4 16 50 25 20
+echo "Running load scaling tests..."
+run_test 4 4 4 50 25 20
+run_test 4 4 8 50 25 20
+run_test 4 4 16 50 25 20
 
 # # Worker scaling tests
-# echo "Running worker scaling tests..."
-# run_test 2 8 20 10 30
-# run_test 4 8 20 10 30
-# run_test 8 8 20 10 30
+echo "Running worker scaling tests..."
+run_test 2 8 8 20 10 30
+run_test 4 8 8 20 10 30
+run_test 8 8 8 20 10 30
 
 # # Stress tests
-# echo "Running stress tests..."
-# run_test 8 16 10 5 60
-# run_test 16 32 10 5 60
+echo "Running stress tests..."
+run_test 8 4 16 10 5 60
+run_test 16 4 32 10 5 60
 
 # Analysis
 echo "Generating analysis..."

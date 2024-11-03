@@ -1,0 +1,16 @@
+Test Results Analysis - Sun 03 Nov 2024 05:48:51 PM -03
+----------------------------------------
+Analysis for test_w2_c2_d5:
+Total operations: 0
+Final balances:
+Printing balances of all accounts:
+Account 0: Balance = 963.00
+Account 1: Balance = 1151.00
+Account 2: Balance = 1199.00
+Account 3: Balance = 1176.00
+Finished printing all balances.
+Final queue size: 0
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 5 seconds
+----------------------------------------

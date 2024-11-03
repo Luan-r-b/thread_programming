@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank System Test Results - 20241103_190723</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-result { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+        .metadata { background-color: #f5f5f5; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Bank System Test Results</h1>
+    <div class="metadata">
+        <h2>Test Information</h2>
+        <pre>Bank System Tests (~20 requests) - Sun 03 Nov 2024 07:07:23 PM -03
+System Information:
+OS: Linux luan-rodrigues-boschini-VJFE59F11X-B1011H 6.8.0-47-generic #47-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 27 21:40:26 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+Compiler: gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
+----------------------------------------
+Test: test_w2_c2_d5
+Duration: 5 seconds
+----------------------------------------</pre>
+    </div>
+    <h2>Test Results</h2>
+<div class='test-result'>
+<h3>test_w2_c2_d5</h3>
+<pre>
+Test Configuration:
+- Workers: 2
+- Accounts: 4
+- Clients: 2
+- Client sleep: 500 ms
+- Operation sleep: 100 ms
+- Duration: 5 seconds
+----------------------------------------
+Initializing bank with 4 accounts.
+Initialized Account 0 with balance 1000.00
+Initialized Account 1 with balance 1000.00
+Initialized Account 2 with balance 1000.00
+Initialized Account 3 with balance 1000.00
+Bank initialization complete.
+Client generated TRANSFER of 41.00 from account 0 to account 3
+Client generated DEPOSIT of 43.00 to account 1
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Transferring 41.00 from Account 0 to Account 3
+New balance of Account 0 after transfer: 959.00
+New balance of Account 3 after transfer: 1041.00
+Worker 1 started processing request.
+Depositing 43.00 into Account 1
+New balance of Account 1 after deposit: 1043.00
+Client generated DEPOSIT of 38.00 to account 0
+Client generated DEPOSIT of 8.00 to account 0
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 1 started processing request.
+Depositing 8.00 into Account 0
+New balance of Account 0 after deposit: 967.00
+Worker 0 started processing request.
+Depositing 38.00 into Account 0
+New balance of Account 0 after deposit: 1005.00
+Client generated DEPOSIT of 42.00 to account 1
+Client generated TRANSFER of 7.00 from account 3 to account 2
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Depositing 42.00 into Account 1
+New balance of Account 1 after deposit: 1085.00
+Worker 1 started processing request.
+Transferring 7.00 from Account 3 to Account 2
+New balance of Account 3 after transfer: 1034.00
+New balance of Account 2 after transfer: 1007.00
+Client generated TRANSFER of 32.00 from account 2 to account 1
+Client generated DEPOSIT of 4.00 to account 2
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 1 started processing request.
+Depositing 4.00 into Account 2
+New balance of Account 2 after deposit: 1011.00
+Worker 0 started processing request.
+Transferring 32.00 from Account 2 to Account 1
+New balance of Account 2 after transfer: 979.00
+New balance of Account 1 after transfer: 1117.00
+Client generated TRANSFER of 67.00 from account 1 to account 0
+Client generated DEPOSIT of 60.00 to account 3
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+
+Server processed 10 total operations.
+Current bank balances:
+Printing balances of all accounts:
+Account 0: Balance = 1005.00
+Account 1: Balance = 1117.00
+Account 2: Balance = 979.00
+Account 3: Balance = 1034.00
+Worker 1 started processing request.
+Depositing 60.00 into Account 3
+New balance of Account 3 after deposit: 1094.00
+Worker 0 started processing request.
+Transferring 67.00 from Account 1 to Account 0
+New balance of Account 1 after transfer: 1050.00
+New balance of Account 0 after transfer: 1072.00
+Finished printing all balances.
+
+Client generated TRANSFER of 93.00 from account 3 to account 1
+Client generated DEPOSIT of 19.00 to account 0
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 1 started processing request.
+Depositing 19.00 into Account 0
+New balance of Account 0 after deposit: 1091.00
+Worker 0 started processing request.
+Transferring 93.00 from Account 3 to Account 1
+New balance of Account 3 after transfer: 1001.00
+New balance of Account 1 after transfer: 1143.00
+Client generated TRANSFER of 51.00 from account 1 to account 0
+Client generated DEPOSIT of 6.00 to account 3
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 1 started processing request.
+Depositing 6.00 into Account 3
+New balance of Account 3 after deposit: 1007.00
+Worker 0 started processing request.
+Transferring 51.00 from Account 1 to Account 0
+New balance of Account 1 after transfer: 1092.00
+New balance of Account 0 after transfer: 1142.00
+Client generated TRANSFER of 99.00 from account 1 to account 0
+Client generated DEPOSIT of 57.00 to account 0
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Transferring 99.00 from Account 1 to Account 0
+New balance of Account 1 after transfer: 993.00
+New balance of Account 0 after transfer: 1241.00
+Worker 1 started processing request.
+Depositing 57.00 into Account 0
+New balance of Account 0 after deposit: 1298.00
+Client generated DEPOSIT of 7.00 to account 0
+Client generated DEPOSIT of 26.00 to account 0
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Depositing 7.00 into Account 0
+New balance of Account 0 after deposit: 1305.00
+Worker 1 started processing request.
+Depositing 26.00 into Account 0
+New balance of Account 0 after deposit: 1331.00
+Client generated DEPOSIT of 86.00 to account 0
+Client generated DEPOSIT of 41.00 to account 0
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+
+Server processed 20 total operations.
+Current bank balances:
+Printing balances of all accounts:
+Account 0: Balance = 1331.00
+Account 1: Balance = 993.00
+Account 2: Balance = 979.00
+Account 3: Balance = 1007.00
+Worker 0 started processing request.
+Depositing 86.00 into Account 0
+New balance of Account 0 after deposit: 1417.00
+Worker 1 started processing request.
+Depositing 41.00 into Account 0
+New balance of Account 0 after deposit: 1458.00
+Finished printing all balances.
+
+1. Signaling clients to stop...
+   - Client 0 stopped successfully
+   - Client 1 stopped successfully
+Queue is empty3. Stopping server...
+   Server stopped successfully
+Printing balances of all accounts:
+Account 0: Balance = 1458.00
+Account 1: Balance = 993.00
+Account 2: Balance = 979.00
+Account 3: Balance = 1007.00
+Finished printing all balances.
+Final queue size: 0
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 5 seconds
+</pre>
+</div>
+</body></html>

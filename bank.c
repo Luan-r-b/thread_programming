@@ -4,9 +4,10 @@
 #include <unistd.h> // For usleep
 #include "bank.h"
 
-void init_bank(Bank* bank, int num_accounts) {
+void init_bank(Bank* bank, int num_accounts, int time_sleep) {
     printf("Initializing bank with %d accounts.\n", num_accounts);
     bank->num_accounts = num_accounts;
+    bank->time_sleep = time_sleep;
     bank->accounts = (Account*)malloc(num_accounts * sizeof(Account));
 
     for (int i = 0; i < num_accounts; i++) {
@@ -18,16 +19,16 @@ void init_bank(Bank* bank, int num_accounts) {
     printf("Bank initialization complete.\n");
 }
 
-void deposit(Account* account, double amount) {
+void deposit(Account* account, double amount,int time_sleep) {
     printf("Depositing %.2f into Account %d\n", amount, account->id);
     pthread_mutex_lock(&account->lock);
     account->balance += amount;
     printf("New balance of Account %d after deposit: %.2f\n", account->id, account->balance);
     pthread_mutex_unlock(&account->lock);
-    usleep(100000); // Simulate operation time
+    usleep(time_sleep); // Simulate operation time
 }
 
-void transfer(Account* from, Account* to, double amount) {
+void transfer(Account* from, Account* to, double amount,int time_sleep) {
     printf("Transferring %.2f from Account %d to Account %d\n", amount, from->id, to->id);
 
     Account *first, *second;
@@ -51,10 +52,10 @@ void transfer(Account* from, Account* to, double amount) {
 
     pthread_mutex_unlock(&first->lock);
     pthread_mutex_unlock(&second->lock);
-    usleep(100000); // Simulate operation time
+    usleep(time_sleep); // Simulate operation time
 }
 
-void print_balance(Bank* bank) {
+void print_balance(Bank* bank, int time_sleep) {
     printf("Printing balances of all accounts:\n");
     for (int i = 0; i < bank->num_accounts; i++) {
         Account* account = &bank->accounts[i];
@@ -62,6 +63,6 @@ void print_balance(Bank* bank) {
         printf("Account %d: Balance = %.2f\n", account->id, account->balance);
         pthread_mutex_unlock(&account->lock);
     }
-    usleep(100000); // Simulate operation time
+    usleep(time_sleep); // Simulate operation time
     printf("Finished printing all balances.\n");
 }

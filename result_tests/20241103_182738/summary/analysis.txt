@@ -1,0 +1,16 @@
+Test Results Analysis - Sun 03 Nov 2024 06:27:43 PM -03
+----------------------------------------
+Analysis for test_w2_c2_d5:
+Total operations: 0
+Final balances:
+New balance of Account 2 after transfer: 778.00
+Worker 1 started processing request.
+New balance of Account 1 after transfer: 1226.00
+Depositing 92.00 into Account 2
+New balance of Account 2 after deposit: 870.00
+Finished printing all balances.
+Final queue size: 0
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 5 seconds
+----------------------------------------

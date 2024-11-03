@@ -24,10 +24,11 @@ fi
 # Function to run test and save results
 run_test() {
     workers=$1
-    clients=$2
-    client_sleep=$3
-    op_sleep=$4
-    duration=$5
+    accounts=$2
+    clients=$3
+    client_sleep=$4
+    op_sleep=$5
+    duration=$6
     test_name="test_w${workers}_c${clients}_d${duration}"
     output_file="$results_dir/${test_name}.log"
     
@@ -35,6 +36,7 @@ run_test() {
     echo "Running test: $test_name"
     echo "Test Configuration:" > "$output_file"
     echo "- Workers: $workers" >> "$output_file"
+    echo "- Accounts: $accounts" >> "$output_file"
     echo "- Clients: $clients" >> "$output_file"
     echo "- Client sleep: $client_sleep ms" >> "$output_file"
     echo "- Operation sleep: $op_sleep ms" >> "$output_file"
@@ -43,7 +45,7 @@ run_test() {
     
     # Run the test and capture output
     start_time=$(date +%s)
-    ./bank_program $workers $clients $client_sleep $op_sleep $duration >> "$output_file" 2>&1
+    ./bank_program $workers $accounts $clients $client_sleep $op_sleep $duration >> "$output_file" 2>&1
     end_time=$(date +%s)
     
     # Add execution time to log
@@ -70,18 +72,18 @@ echo "Starting tests..."
 
 # Test 1: 2 clients, slower rate
 # 2 clients * (5 seconds * 1000ms) / 500ms sleep ≈ 20 requests
-echo "Running test 1 (2 clients, slower rate)..."
-run_test 2 2 500 100 5
+# echo "Running test 1 (2 clients, slower rate)..."
+run_test 2 4 2 500 100 5
 
 # Test 2: 4 clients, medium rate
 # 4 clients * (2 seconds * 1000ms) / 400ms sleep ≈ 20 requests
-echo "Running test 2 (4 clients, medium rate)..."
-run_test 2 4 400 100 2
+# echo "Running test 2 (4 clients, medium rate)..."
+# run_test 2 8 4 400 100 2
 
 # Test 3: 5 clients, faster rate
 # 5 clients * (1 seconds * 1000ms) / 250ms sleep ≈ 20 requests
-echo "Running test 3 (5 clients, faster rate)..."
-run_test 2 5 250 100 1
+# echo "Running test 3 (5 clients, faster rate)..."
+# run_test 2 10 5 250 100 10
 
 # Analysis
 echo "Generating analysis..."

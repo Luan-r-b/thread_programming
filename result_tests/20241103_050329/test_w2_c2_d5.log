@@ -1,9 +1,0 @@
-Test Configuration:
-- Workers: 2
-- Clients: 2
-- Client sleep: 500 ms
-- Operation sleep: 100 ms
-- Duration: 5 seconds
-----------------------------------------
-----------------------------------------
-Test completed in 1 seconds
