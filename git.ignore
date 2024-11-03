@@ -1,0 +1,5 @@
+# Ignore the .vscode directory
+.vscode/
+
+# Ignore the result_tests directory
+result_tests/
