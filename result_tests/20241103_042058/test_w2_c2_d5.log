@@ -1,0 +1,22 @@
+Test Configuration:
+- Workers: 2
+- Clients: 2
+- Client sleep: 500 ms
+- Operation sleep: 100 ms
+- Duration: 5 seconds
+----------------------------------------
+Initializing bank with 2 accounts.
+Initialized Account 0 with balance 1000.00
+Initialized Account 1 with balance 1000.00
+Bank initialization complete.
+Client generated TRANSFER of 50.00 from account 1 to account 0
+Server assigned request to Worker 0
+Client generated TRANSFER of 42.00 from account 1 to account 0
+Worker 0 started processing request.
+Transferring 50.00 from Account 1 to Account 0
+New balance of Account 1 after transfer: 950.00
+New balance of Account 0 after transfer: 1050.00
+Final queue size: 0
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 5 seconds
