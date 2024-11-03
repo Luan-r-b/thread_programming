@@ -1,0 +1,14 @@
+Bank System Tests (~20 requests) - Sun 03 Nov 2024 05:03:41 AM -03
+System Information:
+OS: Linux luan-rodrigues-boschini-VJFE59F11X-B1011H 6.8.0-47-generic #47-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 27 21:40:26 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+Compiler: gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
+----------------------------------------
+Test: test_w2_c2_d5
+Duration: 1 seconds
+----------------------------------------
+Test: test_w2_c4_d2
+Duration: 1 seconds
+----------------------------------------
+Test: test_w2_c5_d1
+Duration: 1 seconds
+----------------------------------------

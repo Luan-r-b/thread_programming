@@ -9,6 +9,7 @@ extern Server server;
 
 void* worker_thread_func(void* arg) {
     WorkerThread* worker = (WorkerThread*)arg;
+    
     while (1) {
         pthread_mutex_lock(&worker->lock);
         while (worker->busy == 0) {

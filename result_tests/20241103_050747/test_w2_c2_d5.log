@@ -1,0 +1,65 @@
+Test Configuration:
+- Workers: 2
+- Clients: 2
+- Client sleep: 500 ms
+- Operation sleep: 100 ms
+- Duration: 5 seconds
+----------------------------------------
+Initializing bank with 2 accounts.
+Initialized Account 0 with balance 1000.00
+Initialized Account 1 with balance 1000.00
+Bank initialization complete.
+Client generated DEPOSIT of 14.00 to account 1
+Client generated DEPOSIT of 64.00 to account 0
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Depositing 14.00 into Account 1
+New balance of Account 1 after deposit: 1014.00
+Worker 1 started processing request.
+Depositing 64.00 into Account 0
+New balance of Account 0 after deposit: 1064.00
+Client generated TRANSFER of 36.00 from account 0 to account 1
+Client generated DEPOSIT of 19.00 to account 0
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Transferring 36.00 from Account 0 to Account 1
+New balance of Account 0 after transfer: 1028.00
+New balance of Account 1 after transfer: 1050.00
+Worker 1 started processing request.
+Depositing 19.00 into Account 0
+New balance of Account 0 after deposit: 1047.00
+Client generated TRANSFER of 36.00 from account 0 to account 1
+Client generated TRANSFER of 31.00 from account 0 to account 1
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+
+Server processed 10 total operations.
+Current bank balances:
+Printing balances of all accounts:
+Account 0: Balance = 1047.00
+Account 1: Balance = 1050.00
+Worker 0 started processing request.
+Transferring 36.00 from Account 0 to Account 1
+New balance of Account 0 after transfer: 1011.00
+New balance of Account 1 after transfer: 1086.00
+Worker 1 started processing request.
+Transferring 31.00 from Account 0 to Account 1
+New balance of Account 0 after transfer: 980.00
+New balance of Account 1 after transfer: 1117.00
+Finished printing all balances.
+
+Client generated TRANSFER of 4.00 from account 1 to account 0
+Server assigned request to Worker 0
+Client generated DEPOSIT of 92.00 to account 0
+Worker 0 started processing request.
+Transferring 4.00 from Account 1 to Account 0
+New balance of Account 1 after transfer: 1113.00
+New balance of Account 0 after transfer: 984.00
+Client generated TRANSFER of 20.00 from account 0 to account 1
+Client generated TRANSFER of 42.00 from account 0 to account 1
+Final queue size: 2
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 5 seconds

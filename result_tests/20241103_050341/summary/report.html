@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank System Test Results - 20241103_050341</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-result { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+        .metadata { background-color: #f5f5f5; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Bank System Test Results</h1>
+    <div class="metadata">
+        <h2>Test Information</h2>
+        <pre>Bank System Tests (~20 requests) - Sun 03 Nov 2024 05:03:41 AM -03
+System Information:
+OS: Linux luan-rodrigues-boschini-VJFE59F11X-B1011H 6.8.0-47-generic #47-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 27 21:40:26 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+Compiler: gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0
+----------------------------------------
+Test: test_w2_c2_d5
+Duration: 1 seconds
+----------------------------------------
+Test: test_w2_c4_d2
+Duration: 1 seconds
+----------------------------------------
+Test: test_w2_c5_d1
+Duration: 1 seconds
+----------------------------------------</pre>
+    </div>
+    <h2>Test Results</h2>
+<div class='test-result'>
+<h3>test_w2_c2_d5</h3>
+<pre>
+Test Configuration:
+- Workers: 2
+- Clients: 2
+- Client sleep: 500 ms
+- Operation sleep: 100 ms
+- Duration: 5 seconds
+----------------------------------------
+----------------------------------------
+Test completed in 1 seconds
+</pre>
+</div>
+<div class='test-result'>
+<h3>test_w2_c4_d2</h3>
+<pre>
+Test Configuration:
+- Workers: 2
+- Clients: 4
+- Client sleep: 400 ms
+- Operation sleep: 100 ms
+- Duration: 2 seconds
+----------------------------------------
+----------------------------------------
+Test completed in 1 seconds
+</pre>
+</div>
+<div class='test-result'>
+<h3>test_w2_c5_d1</h3>
+<pre>
+Test Configuration:
+- Workers: 2
+- Clients: 5
+- Client sleep: 250 ms
+- Operation sleep: 100 ms
+- Duration: 1 seconds
+----------------------------------------
+Initializing bank with 5 accounts.
+Initialized Account 0 with balance 1000.00
+Initialized Account 1 with balance 1000.00
+Initialized Account 2 with balance 1000.00
+Initialized Account 3 with balance 1000.00
+Initialized Account 4 with balance 1000.00
+Bank initialization complete.
+Client generated TRANSFER of 44.00 from account 3 to account 4
+Server assigned request to Worker 0
+Client generated TRANSFER of 36.00 from account 2 to account 0
+Worker 0 started processing request.
+Transferring 44.00 from Account 3 to Account 4
+New balance of Account 3 after transfer: 956.00
+New balance of Account 4 after transfer: 1044.00
+Client generated TRANSFER of 62.00 from account 3 to account 0
+Client generated DEPOSIT of 62.00 to account 2
+Client generated DEPOSIT of 64.00 to account 3
+Final queue size: 3
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 1 seconds
+</pre>
+</div>
+</body></html>

@@ -1,0 +1,39 @@
+Test Configuration:
+- Workers: 2
+- Clients: 4
+- Client sleep: 400 ms
+- Operation sleep: 100 ms
+- Duration: 2 seconds
+----------------------------------------
+Initializing bank with 4 accounts.
+Initialized Account 0 with balance 1000.00
+Initialized Account 1 with balance 1000.00
+Initialized Account 2 with balance 1000.00
+Initialized Account 3 with balance 1000.00
+Bank initialization complete.
+Client generated TRANSFER of 27.00 from account 2 to account 3
+Client generated TRANSFER of 32.00 from account 1 to account 3
+Server assigned request to Worker 0
+Server assigned request to Worker 1
+Worker 0 started processing request.
+Transferring 27.00 from Account 2 to Account 3
+New balance of Account 2 after transfer: 973.00
+New balance of Account 3 after transfer: 1027.00
+Worker 1 started processing request.
+Transferring 32.00 from Account 1 to Account 3
+New balance of Account 1 after transfer: 968.00
+New balance of Account 3 after transfer: 1059.00
+Client generated DEPOSIT of 23.00 to account 0
+Client generated DEPOSIT of 16.00 to account 2
+Server assigned request to Worker 0
+Worker 0 started processing request.
+Depositing 23.00 into Account 0
+New balance of Account 0 after deposit: 1023.00
+Client generated TRANSFER of 95.00 from account 0 to account 2
+Client generated DEPOSIT of 73.00 to account 3
+Client generated DEPOSIT of 36.00 to account 2
+Client generated TRANSFER of 31.00 from account 1 to account 0
+Final queue size: 4
+Tempo de execução concluído. Encerrando...
+----------------------------------------
+Test completed in 2 seconds

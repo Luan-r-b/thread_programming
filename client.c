@@ -9,6 +9,7 @@
 extern RequestQueue request_queue;
 extern Bank bank;
 
+
 void* client_thread_func(void* arg) {
 
     int sleep_time_client = *(int*)arg;
@@ -41,7 +42,7 @@ void* client_thread_func(void* arg) {
         }
 
         enqueue_request(&request_queue, request);
-        sleep(sleep_time_client);
+        usleep(sleep_time_client);
     }
 
     return NULL;

@@ -9,6 +9,7 @@ extern Bank bank;
 extern RequestQueue request_queue;
 
 
+
 void init_server(Server* server, int num_workers) {
     server->workers = (WorkerThread*)malloc(sizeof(WorkerThread) * num_workers);
     server->num_workers = num_workers;
@@ -53,14 +54,14 @@ void* server_thread_func(void* arg) {
             }
             pthread_mutex_unlock(&server->workers[i].lock);
         }
-        printf(server->total_operations);
         server->total_operations++;
-        // Verificar se é hora de imprimir o balanço geral
-        if (server->total_operations % 10 == 0 && server->total_operations != 0) {
-            printf("\nBalanço geral após %d operações:\n", server->total_operations);
+        if (server->total_operations % 10 == 0) {
+            printf("\nServer processed %d total operations.\n", server->total_operations);
+            printf("Current bank balances:\n");
             print_balance(&bank);
             printf("\n");
         }
+
         pthread_mutex_unlock(&server->lock);
     }
     return NULL;
