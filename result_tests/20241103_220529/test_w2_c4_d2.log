@@ -1,0 +1,8 @@
+Test Configuration:
+- Workers: 2
+- Accounts: 8
+- Clients: 4
+- Client sleep: 400 ms
+- Operation sleep: 100 ms
+- Duration: 2 seconds
+----------------------------------------

@@ -2,6 +2,7 @@
 #define WORKER_H
 
 #include <pthread.h>
+#include <stdio.h>
 #include "request_queue.h"
 
 typedef struct WorkerThread {
